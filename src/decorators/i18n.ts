@@ -1,9 +1,9 @@
 import { type ApplicationCommandRegistry, container } from '@sapphire/framework'
 import { type ChatInputApplicationCommandData } from 'discord.js'
 import { env } from '../lib'
+import { Locale } from 'discord-api-types/v10'
 import { s } from '@sapphire/shapeshift'
 import type { TFunction } from 'i18next'
-import { Locale } from 'discord-api-types/v10'
 
 interface Localizable {
 	description: string
@@ -24,10 +24,8 @@ const localize = ( i18n: i18nCollection, target: Localizable, prefix: string ) =
 
 	target.descriptionLocalizations ??= {}
 	target.nameLocalizations ??= {}
-	
-	for ( const [ _locale, t ] of Object.entries( i18n ) ) {
-		if ( !t ) continue
 
+	for ( const [ _locale, t ] of Object.entries( i18n ) ) {
 		const locale = _locale as Locale
 		target.descriptionLocalizations[ locale ] = t( `${ prefix }.description` )
 		target.nameLocalizations[ locale ] = t( `${ prefix }.name` )
@@ -62,7 +60,7 @@ export const i18n = ( _target: unknown, methodName: string, descriptor: Property
 
 		const { languages } = container.i18n
 		const validateLocale = s.nativeEnum( Locale )
-		
+
 		const i18n: i18nCollection = {
 			'en-US': container.i18n.getT( 'en-US' )
 		}
