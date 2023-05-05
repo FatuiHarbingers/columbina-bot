@@ -1,12 +1,20 @@
-import { LogLevel, SapphireClient } from '@sapphire/framework'
+import { container, LogLevel, SapphireClient } from '@sapphire/framework'
 import { env } from './environment'
 import { Intents } from 'discord.js'
 import type { Sequelize } from 'sequelize'
+import { Locale } from 'discord-api-types/v9'
 
 export class UserClient extends SapphireClient {
 	public constructor() {
 		super( {
 			defaultPrefix: env.DISCORD_PREFIX ?? '!',
+			i18n: {
+				fetchLanguage: context => {
+					const { languages } = container.i18n
+					const lang = context.guild?.preferredLocale ?? ''
+					return languages.has( lang ) ? lang : Locale.EnglishUS
+				}
+			},
 			intents: [
 				Intents.FLAGS.GUILDS,
 				Intents.FLAGS.GUILD_MESSAGES
