@@ -1,6 +1,6 @@
 import { container, LogLevel, SapphireClient } from '@sapphire/framework'
 import { env } from './environment'
-import { Intents } from 'discord.js'
+import { IntentsBitField } from 'discord.js'
 import { Locale } from 'discord-api-types/v9'
 import type { Sequelize } from 'sequelize'
 
@@ -15,10 +15,7 @@ export class UserClient extends SapphireClient {
 					return languages.has( lang ) ? lang : Locale.EnglishUS
 				}
 			},
-			intents: [
-				Intents.FLAGS.GUILDS,
-				Intents.FLAGS.GUILD_MESSAGES
-			],
+			intents: new IntentsBitField( [ 'Guilds', 'GuildMessages' ] ),
 			loadDefaultErrorListeners: true,
 			logger: {
 				level: LogLevel.Info
