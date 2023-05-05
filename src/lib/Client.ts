@@ -1,7 +1,10 @@
 import { container, LogLevel, SapphireClient } from '@sapphire/framework'
 import { env } from './environment'
+import { getRootData } from '@sapphire/pieces'
 import { IntentsBitField } from 'discord.js'
+import { join } from 'path'
 import { Locale } from 'discord-api-types/v9'
+import { readdirSync } from 'fs-extra'
 import type { Sequelize } from 'sequelize'
 
 export class UserClient extends SapphireClient {
@@ -21,6 +24,12 @@ export class UserClient extends SapphireClient {
 				level: LogLevel.Info
 			}
 		} )
+
+		const modulesPath = join( getRootData().root, 'modules' )
+		const modules = readdirSync( modulesPath )
+		for ( const module of modules ) {
+			this.stores.registerPath( join( modulesPath, module ) )
+		}
 	}
 
 	public async start(): Promise<void> {
