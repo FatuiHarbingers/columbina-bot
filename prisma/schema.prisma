@@ -9,3 +9,36 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  snowflake String      @id
+  roles     UserRoles[]
+  username  String      @unique
+}
+
+model UserRoles {
+  userId String
+  user   User   @relation(references: [snowflake], fields: [userId])
+  roleId Int
+  role   Role   @relation(references: [id], fields: [roleId])
+  guild  String
+
+  @@unique([userId, guild])
+}
+
+model Role {
+  id          Int               @id @default(autoincrement())
+  name        String
+  users       UserRoles[]
+  permissions RolePermissions[]
+}
+
+enum Permission {
+  READ
+}
+
+model RolePermissions {
+  roleId     Int        @id
+  permission Permission
+  role       Role       @relation(fields: [roleId], references: [id])
+}
