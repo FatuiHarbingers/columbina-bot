@@ -22,8 +22,8 @@ const localize = ( i18n: i18nCollection, target: Localizable, prefix: string ) =
 	target.description = en( `${ prefix }.description` )
 	target.name = en( `${ prefix }.name` )
 
-	target.descriptionLocalizations ??= {}
-	target.nameLocalizations ??= {}
+	target.descriptionLocalizations = {}
+	target.nameLocalizations = {}
 
 	for ( const [ _locale, t ] of Object.entries( i18n ) ) {
 		const locale = _locale as Locale
