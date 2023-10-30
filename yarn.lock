@@ -1884,10 +1884,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-copy@npm:^2.1.1":
-  version: 2.1.3
-  resolution: "fast-copy@npm:2.1.3"
-  checksum: 5d1a4a218304893ed0c4593b5d21b282202f9e74ed33fee261c0c574e81003863e0c6fd0d857451dfe15f3e1919acd8084ce52c2457c9410e61e1aea9b388029
+"fast-copy@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "fast-copy@npm:3.0.1"
+  checksum: 5496b5cf47df29eea479deef03b6b7188626a2cbc356b3015649062846729de6f1a9f555f937e772da8feae0a1231fab13096ed32424b2d61e4d065abc9969fe
   languageName: node
   linkType: hard
 
@@ -3445,13 +3445,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino-pretty@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "pino-pretty@npm:9.1.0"
+"pino-pretty@npm:^9.4.1":
+  version: 9.4.1
+  resolution: "pino-pretty@npm:9.4.1"
   dependencies:
     colorette: ^2.0.7
     dateformat: ^4.6.3
-    fast-copy: ^2.1.1
+    fast-copy: ^3.0.0
     fast-safe-stringify: ^2.1.1
     help-me: ^4.0.1
     joycon: ^3.1.1
@@ -3465,7 +3465,7 @@ __metadata:
     strip-json-comments: ^3.1.1
   bin:
     pino-pretty: bin.js
-  checksum: 44416ebfcc8c4b996a1508b7866301087565f47d2b9155cbe41ca56cc3e638f54c989728492bc71a07e8ea73a64d1ea44b2728a2440c1d67f9ea43c25c8cceaa
+  checksum: 0fa272382398afe0854f5cdd94263cb311a3bf038dfa1fad5c9ddff6612d7ec108f5e7e8b7ee070ed953354ab0c542f1f165f976a2229933c44c7f6a783f4990
   languageName: node
   linkType: hard
 
@@ -3857,7 +3857,7 @@ __metadata:
     lint-staged: ^13.0.3
     mysql2: ^2.3.3
     pino: ^8.4.2
-    pino-pretty: ^9.1.0
+    pino-pretty: ^9.4.1
     prisma: ^4.13.0
     rimraf: ^3.0.2
     ts-dotenv: ^0.8.3
