@@ -13,7 +13,7 @@
     "start": "yarn node --enable-source-maps dist/main.js"
   },
   "dependencies": {
-    "@discordjs/rest": "^1.7.1",
+    "@discordjs/rest": "^2.4.0",
     "@prisma/client": "^4.13.0",
     "@sapphire/decorators": "^6.0.1",
     "@sapphire/framework": "4.4.3",
