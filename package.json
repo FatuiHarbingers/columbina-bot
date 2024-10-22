@@ -22,7 +22,7 @@
     "@sapphire/shapeshift": "^3.8.2",
     "@sapphire/utilities": "^3.11.1",
     "colorette": "^2.0.19",
-    "discord-api-types": "^0.37.41",
+    "discord-api-types": "^0.37.103",
     "discord.js": "^14.10.2",
     "fs-extra": "^10.1.0",
     "i18next": "^22.4.15",
